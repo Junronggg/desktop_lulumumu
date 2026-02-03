@@ -1,0 +1,2 @@
+BLUE = "#A7C7E7"
+PINK = "#F4A6C1"
