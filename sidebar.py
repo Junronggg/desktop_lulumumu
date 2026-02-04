@@ -5,6 +5,9 @@
 
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QSpacerItem, QSizePolicy
 from PyQt6.QtCore import Qt
+from pet import resource_path
+from PyQt6.QtGui import QDesktopServices
+from PyQt6.QtCore import QUrl
 
 BLUE = "#A7C7E7"
 PINK = "#F4A6C1"
@@ -74,14 +77,21 @@ class Sidebar(QWidget):
             return
 
         self.clear_menu()
-        items = ["Chat", "Play"] if self.mode == "chill" else ["Todos", "Notes", "Calendar"]
+        items = ["摸摸 ^^", "away~", "豚馒宇宙"] if self.mode == "chill" else ["Todos", "Notes", "away~"]
 
         for item in items:
             btn = QPushButton(item)
             btn.setFixedSize(188, 28)  # Wide buttons to match the bar width
             btn.setStyleSheet(
                 f"background-color: white; border-radius: 6px; border: 2px solid {BLUE}; font-weight: bold;")
-            btn.clicked.connect(lambda _, t=item: print(f"{t} clicked"))
+            # btn.clicked.connect(lambda _, t=item: print(f"{t} clicked"))
+            self.menu_layout.addWidget(btn)
+            if item == "摸摸 ^^":
+                btn.clicked.connect(self.parent().pet.play_interaction)
+            elif item == "away~":
+                btn.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://www.bilibili.com/video/BV1h1kcBfEuJ/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=ae78803ea852364af36eaf1d7c327038")))
+            else:
+                btn.clicked.connect(lambda _, t=item: print(f"{t} clicked"))
             self.menu_layout.addWidget(btn)
 
         self.menu_container.show()
@@ -104,18 +114,25 @@ class Sidebar(QWidget):
     def set_mode(self, mode):
         self.mode = mode.lower()
         self.menu_container.hide()
+
         # Rest of your set_mode logic for changing the GIF...
         if self.mode == "chill":
-            self.parent().pet.movie.stop()
+            # self.parent().pet.movie.stop()
+            self.parent().pet.stop_work_timer()
             from PyQt6.QtGui import QMovie
-            self.parent().pet.movie = QMovie("assets/hedwig_emocat.gif")
+            self.parent().pet.movie = QMovie(resource_path("assets/hedwig_emocat.gif"))
             self.parent().pet.movie.frameChanged.connect(self.parent().pet.scale_frame)
             self.parent().pet.setMovie(self.parent().pet.movie)
             self.parent().pet.movie.start()
         else:
+            """
             self.parent().pet.movie.stop()
             from PyQt6.QtGui import QMovie
-            self.parent().pet.movie = QMovie("assets/workmode.gif")
+            self.parent().pet.movie = QMovie(resource_path("assets/workmode3.gif"))
             self.parent().pet.movie.frameChanged.connect(self.parent().pet.scale_frame)
             self.parent().pet.setMovie(self.parent().pet.movie)
             self.parent().pet.movie.start()
+            """
+            self.parent().pet.start_work_timer()
+            # Start with the first work gif
+            self.parent().pet.change_work_gif(0)
