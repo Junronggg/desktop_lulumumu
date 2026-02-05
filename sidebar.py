@@ -93,6 +93,8 @@ class Sidebar(QWidget):
 
             if item == "摸摸 ^^":
                 btn.clicked.connect(self.parent().pet.play_interaction)
+            elif item == "豚馒宇宙":
+                btn.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://docs.qq.com/doc/DSGdyZmJzTndtV2x1?no_promotion=1&is_blank_or_template=blank")))
             elif item == "away~":
                 btn.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://www.bilibili.com/video/BV1h1kcBfEuJ/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=ae78803ea852364af36eaf1d7c327038")))
             elif item == "todos":
