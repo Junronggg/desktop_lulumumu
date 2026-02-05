@@ -112,12 +112,12 @@ class Pet(QLabel):
 
     def update_work_time(self):
         self.minutes_elapsed += 1
-        print(f"Work Time: {self.minutes_elapsed} min")  # Debugging help
+        # print(f"Work Time: {self.minutes_elapsed} min")  # Debugging help
 
         new_stage = 0
-        if self.minutes_elapsed >= 2:
+        if self.minutes_elapsed >= 20:
             new_stage = 2
-        elif self.minutes_elapsed >= 1:
+        elif self.minutes_elapsed >= 10:
             new_stage = 1
 
         if new_stage > self.max_unlocked_index:

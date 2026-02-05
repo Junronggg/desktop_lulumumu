@@ -5,9 +5,12 @@
 
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QSpacerItem, QSizePolicy
 from PyQt6.QtCore import Qt
+
+from notes import NoteWindow
 from pet import resource_path
 from PyQt6.QtGui import QDesktopServices
 from PyQt6.QtCore import QUrl
+from todo import TodoWindow
 
 BLUE = "#A7C7E7"
 PINK = "#F4A6C1"
@@ -17,6 +20,8 @@ class Sidebar(QWidget):
     def __init__(self, parent):
         super().__init__(parent)
         self.mode = "chill"
+        self.todo_window = None
+        self.note_window = None
 
         # Main layout
         self.layout = QVBoxLayout(self)
@@ -77,7 +82,7 @@ class Sidebar(QWidget):
             return
 
         self.clear_menu()
-        items = ["摸摸 ^^", "away~", "豚馒宇宙"] if self.mode == "chill" else ["Todos", "Notes", "away~"]
+        items = ["摸摸 ^^", "away~", "豚馒宇宙"] if self.mode == "chill" else ["todos", "notes", "摸摸 ^^", "away~"]
 
         for item in items:
             btn = QPushButton(item)
@@ -85,16 +90,54 @@ class Sidebar(QWidget):
             btn.setStyleSheet(
                 f"background-color: white; border-radius: 6px; border: 2px solid {BLUE}; font-weight: bold;")
             # btn.clicked.connect(lambda _, t=item: print(f"{t} clicked"))
-            self.menu_layout.addWidget(btn)
+
             if item == "摸摸 ^^":
                 btn.clicked.connect(self.parent().pet.play_interaction)
             elif item == "away~":
                 btn.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://www.bilibili.com/video/BV1h1kcBfEuJ/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=ae78803ea852364af36eaf1d7c327038")))
+            elif item == "todos":
+                btn.clicked.connect(self.show_todos)
+            elif item == "notes":
+                btn.clicked.connect(self.show_notes)
             else:
                 btn.clicked.connect(lambda _, t=item: print(f"{t} clicked"))
             self.menu_layout.addWidget(btn)
 
         self.menu_container.show()
+
+    def show_todos(self):
+        if self.todo_window is None:
+            # We pass self.window() (the DesktopPet window) as the parent
+            self.todo_window = TodoWindow(self.window())
+
+            # CRITICAL: Force the Todo window to stay on top just like the pet
+            self.todo_window.setWindowFlags(
+                Qt.WindowType.FramelessWindowHint |
+                Qt.WindowType.WindowStaysOnTopHint |
+                Qt.WindowType.Tool  # Keeps it out of the taskbar
+            )
+
+        if self.todo_window.isVisible():
+            self.todo_window.hide()
+        else:
+            # Position it to the LEFT of the pet so it doesn't overlap the sidebar
+            pet_pos = self.window().frameGeometry().topLeft()
+            self.todo_window.move(pet_pos.x() - 260, pet_pos.y())
+            self.todo_window.show()
+            self.todo_window.raise_()  # Bring it to the very front
+
+    def show_notes(self):
+        if self.note_window is None:
+            self.note_window = NoteWindow(self.window())
+
+        if self.note_window.isVisible():
+            self.note_window.hide()
+        else:
+            # Move it to a different spot so it doesn't overlap Todo
+            pet_pos = self.window().frameGeometry().topLeft()
+            self.note_window.move(pet_pos.x() + 300, pet_pos.y())
+            self.note_window.show()
+            self.note_window.raise_()
 
     def show_mode_selection(self):
         if self.menu_container.isVisible():
