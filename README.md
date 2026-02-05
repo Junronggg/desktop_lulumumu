@@ -1,8 +1,11 @@
 # 🐾 Desktop lulumumu
 
 🩵🩷让可爱的豚豚馒馒在桌面上陪你一起玩吧！🩷🩵
-<img src="assets/demo1.gif" width="200">
-<img src="assets/demo2.gif" width="200">
+
+<img src="assets/hedwig_emocat.gif" width="150" />
+
+
+<img src="assets/workmode2.gif" width="100" />
 
 ---
 
@@ -20,23 +23,19 @@
 
 ## 💡 项目动机 Motivation
 
-在学习和工作的时候，总会忍不住分心、焦虑或者感到孤单 🥲  
-这个项目希望做一个 **轻量、可互动、不打扰** 的桌面小宠物：
+在一个很突然的晚上，想到如果我的桌面上有一个小小的豚豚馒馒，那该多可爱呢！
+感谢科学技术的发展，感谢vibe coding，我也想给lulu和小木做点什么可爱的东西，所以有了今天的桌面宠物。
+做这个项目的过程和任何一次比赛/项目都不一样，我第一次每天期待着coding，甚至写下这份README都充满乐趣，
+也许这就是如此爱你们的原因，因为你们的存在本身就让人快乐。
 
-- 累了可以摸一摸，放松一下
-- 专注时有一点陪伴和奖励
-- 不用复杂操作，随时出现、随时消失
-
-简单来说：  
-👉 **让努力和快乐都更可持续一点** 🌱
-
----
+祝大家玩的开心，希望lulu和小木可以陪伴大家度过每一个幸福或是悲伤的时刻，祝两个可爱的宝宝星途璀璨🩵🩷
 
 ## ✨ 功能介绍 Functions
 
 ### 😼 Chill 模式
-<img src="assets/demo1.gif" width="200">
 和豚豚馒馒一起玩吧！🥰🥰🥰
+
+<img src="assets/demo1.png" width="300" />
 
 支持功能：
 - 🩵 **摸摸emo猫猫&小海德薇吧**
@@ -47,21 +46,34 @@
 ---
 
 ### 💼 Work 模式
-<img src="assets/demo2.gif" width="200">
 和豚豚馒馒一起工作吧！🥰🥰🥰
 
+<img src="assets/demo2.png" width="300" />
+
 支持功能：
-- ✅ **Todos 清单**
+
+✅ **Todos 清单**
+
+<img src="assets/todo_demo.png" width="200">
+ 
+
   - 添加任务
   - 勾选完成
   - 双击删除
-  <img src="assets/todo_demo.gif" width="200">
-- 📝 **Notepad 记事本**
-  - 随时记录想法
-  <img src="assets/note_demo.gif" width="200">
-- 🩵 **摸摸豚豚馒馒吧**🩷
-- 🎥 **away~**
-- ⏱ **连续工作 10 分钟后解锁lulumumu新形象！** 🎉
+  
+
+
+📝 **Notepad 记事本**
+
+<img src="assets/note_demo.png" width="200">
+
+- 随时记录想法
+
+🩵 **摸摸豚豚馒馒吧**🩷
+
+🎥 **away~**
+
+⏱ **连续工作 10 分钟后解锁lulumumu新形象！** 🎉
 
 
 ---
@@ -107,7 +119,7 @@
 ## 🛠 技术栈 Tech Stack
 
 - 🐍 **Python**
-- 🖼 **PyQt (Qt for Python)**
+- 🖼 **PyQt6 (Qt for Python)**
 - 📦 **JSON**
   - 用于本地数据存储（Todos / Notes / 状态）
 
@@ -115,9 +127,7 @@
 
 ## 💖 致谢 Acknowledgement
 
-- 感谢 Qt 提供强大的 GUI 框架
-- 感谢所有愿意陪着小宠物一起努力的人 🫶
-- 也感谢正在使用这个小项目的你 ✨
+
 
 > 祝我们亲爱的lulumumu星途璀璨，天天开心，睡个好觉 
 > 
