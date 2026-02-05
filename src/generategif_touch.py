@@ -1,6 +1,6 @@
 from PIL import Image
 
-img = Image.open("assets/touch.png").convert("RGBA")
+img = Image.open("../assets/touch.png").convert("RGBA")
 w, h = img.size
 
 # Patting settings
@@ -27,7 +27,7 @@ for angle in angles:
 
 # Save as GIF
 frames[0].save(
-    "assets/touch.gif",
+    "../assets/touch.gif",
     save_all=True,
     append_images=frames[1:],
     duration=duration,

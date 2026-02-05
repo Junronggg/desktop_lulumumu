@@ -9,12 +9,11 @@ from draggable import DraggableLabel
 
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
+        base_path = os.path.dirname(os.path.abspath(__file__))
 
     return os.path.join(base_path, relative_path)
 
@@ -23,7 +22,7 @@ class Pet(QLabel):
     # Signal to tell the sidebar or window to show/hide the back button
     unlocked_stage = pyqtSignal(int)
 
-    def __init__(self, gif_path="assets/hedwig_emocat.gif", width=200):
+    def __init__(self, gif_path="../assets/hedwig_emocat.gif", width=200):
         super().__init__()
         self.drag_position = QPoint()
         self.width = width
@@ -39,9 +38,9 @@ class Pet(QLabel):
         self.movie.start()
 
         self.work_gifs = [
-            "assets/workmode2.gif",
-            "assets/workmode3.gif",
-            "assets/workmode.gif"
+            "../assets/workmode2.gif",
+            "../assets/workmode3.gif",
+            "../assets/workmode.gif"
         ]
         self.current_work_index = 0
         self.max_unlocked_index = 0
@@ -60,7 +59,7 @@ class Pet(QLabel):
         self.bubble_label.move(40, -40)
 
         # 2. Load the bubble GIF (Keep your existing movie logic)
-        self.bubble_movie = QMovie(resource_path("assets/touch.gif"))
+        self.bubble_movie = QMovie(resource_path("../assets/touch.gif"))
         from PyQt6.QtCore import QSize
         self.bubble_movie.setScaledSize(QSize(self.width, self.width))
         self.bubble_label.setMovie(self.bubble_movie)

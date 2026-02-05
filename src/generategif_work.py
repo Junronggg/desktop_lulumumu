@@ -1,6 +1,6 @@
 from PIL import Image
 
-img = Image.open("assets/workmode3.png").convert("RGBA")
+img = Image.open("../assets/workmode.png").convert("RGBA")
 w, h = img.size
 
 jump_height = 20      # how high it jumps (pixels)
@@ -19,7 +19,7 @@ for y in offsets:
     frames.append(frame)
 
 frames[0].save(
-    "assets/workmode3.gif",
+    "../assets/workmode.gif",
     save_all=True,
     append_images=frames[1:],
     duration=70,

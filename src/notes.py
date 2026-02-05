@@ -60,7 +60,7 @@ class NoteWindow(QFrame):
 
         # Decorative image (on top of card)
         self.deco_img = QLabel(self.container)
-        pixmap = QPixmap(resource_path("assets/notes.png"))
+        pixmap = QPixmap(resource_path("../assets/notes.png"))
         if not pixmap.isNull():
             self.deco_img.setPixmap(
                 pixmap.scaled(100, 100, Qt.AspectRatioMode.KeepAspectRatio)

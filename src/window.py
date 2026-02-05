@@ -20,7 +20,7 @@ class DesktopPet(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(5)
 
-        self.pet = Pet("assets/hedwig_emocat.gif")
+        self.pet = Pet("../assets/hedwig_emocat.gif")
         self.sidebar = Sidebar(self)
         self.sidebar.hide()
 

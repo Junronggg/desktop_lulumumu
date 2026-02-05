@@ -165,7 +165,7 @@ class Sidebar(QWidget):
             # self.parent().pet.movie.stop()
             self.parent().pet.stop_work_timer()
             from PyQt6.QtGui import QMovie
-            self.parent().pet.movie = QMovie(resource_path("assets/hedwig_emocat.gif"))
+            self.parent().pet.movie = QMovie(resource_path("../assets/hedwig_emocat.gif"))
             self.parent().pet.movie.frameChanged.connect(self.parent().pet.scale_frame)
             self.parent().pet.setMovie(self.parent().pet.movie)
             self.parent().pet.movie.start()

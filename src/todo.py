@@ -74,7 +74,7 @@ class TodoWindow(QFrame):
 
         # 3. Larger Bottom-Right Image
         self.deco_img = QLabel(self)
-        pixmap = QPixmap(resource_path("assets/todo.png"))
+        pixmap = QPixmap(resource_path("../assets/todo.png"))
         if not pixmap.isNull():
             # Scaled to be larger as requested
             self.deco_img.setPixmap(
