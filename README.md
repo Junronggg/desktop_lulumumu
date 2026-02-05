@@ -2,10 +2,7 @@
 
 🩵🩷让可爱的豚豚馒馒在桌面上陪你一起玩吧！🩷🩵
 
-<img src="assets/hedwig_emocat.gif" width="150" />
-
-
-<img src="assets/workmode2.gif" width="100" />
+<img src="assets/hedwig_emocat.gif" width="150" /> <img src="assets/workmode2.gif" width="100" />
 
 ---
 
