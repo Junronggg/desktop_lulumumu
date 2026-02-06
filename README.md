@@ -13,6 +13,7 @@
   - [Chill 模式](#chill-模式)
   - [Work 模式](#work-模式)
 - [使用小技巧 Tips](#-使用小技巧-tips)
+- [安装&使用指南](#-setup-guide安装与运行指南)
 - [技术栈 Tech Stack](#-技术栈-tech-stack)
 - [致谢 Acknowledgement](#-致谢-acknowledgement)
 
@@ -75,7 +76,7 @@
 
 ---
 
-## 🩷🩵 使用小技巧 Tips
+## 🩵🩷 使用小技巧 Tips
 
 ### 🥰 给豚馒换个地方
 - 鼠标拖动图像
@@ -110,6 +111,91 @@
 
 **触摸互动**
 - 触摸手依然可以移动、互动🫳🏻
+
+---
+
+## 🛠 Setup Guide（安装与运行指南）
+
+想要安装一个豚豚馒馒在桌面陪伴你吗！🩵🩷
+本项目是一个使用 **Python + PyQt6** 开发的桌面桌宠应用，请按照以下步骤进行环境配置和运行 ^_^
+
+---
+
+### 1️⃣ 安装 Python
+
+请先安装 **Python 3.10 或以上版本（推荐 3.11）**。
+
+🔗 官方下载地址：  
+https://www.python.org/downloads/
+
+⚠️ **Windows 用户注意：**  
+安装时请务必勾选 ✅ **Add Python to PATH**
+
+安装完成后，打开终端 / PowerShell，输入：
+
+```bash
+```python --version
+若能看到版本号（如 Python 3.11.x），说明安装成功
+
+
+### 2️⃣ 获取项目代码
+
+可以使用 Git 克隆 或 直接下载 ZIP
+
+方法一：使用 Git
+```git clone https://github.com/Junronggg/desktop_lulumumu.git
+```cd desktop_lulumumu
+
+方法二：下载 ZIP
+
+在 GitHub 页面点击 Code → Download ZIP, 解压到本地任意目录, 
+使用终端进入项目根目录
+
+### 3️⃣ 创建并激活虚拟环境（可以跳过这一步哦~）
+为了避免依赖冲突，建议为项目创建虚拟环境。
+
+- Windows:
+```python -m venv venv
+```venv\Scripts\activate
+
+- macOS / Linux:
+```python3 -m venv venv
+```source venv/bin/activate
+
+激活成功后，终端前会显示：
+
+```bash
+```(venv)
+
+### 4️⃣ 安装项目依赖
+
+确保你已经激活虚拟环境，然后运行：
+```pip install -r requirements.txt
+
+### 5️⃣ 项目结构说明
+桌面豚馒的项目结构如下：
+desktop-pet/
+├── assets/              # GIF / PNG / UI 资源
+│   ├── hedwig_emocat.gif
+│   ├── workmode.gif
+│   └── ...
+├── src/
+    ├── pet.py               # 豚馒本体（显示、拖拽、动画）
+    ├── sidebar.py           # 菜单与模式切换
+    ├── window.py            # 主窗口容器
+    ├── main.py              # 程序入口
+├── requirements.txt     # 依赖列表
+└── README.md
+
+### 6️⃣ 运行桌面豚馒
+```python main.py
+
+### 7️⃣ 开发环境推荐
+- IDE：PyCharm / VS Code
+
+- Python 版本：3.11
+
+- 系统：Windows / macOS
 
 ---
 

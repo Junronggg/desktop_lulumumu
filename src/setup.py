@@ -1,22 +1,25 @@
 from cx_Freeze import setup, Executable
-import PyQt6
+import sys
 import os
 
-# Correct Qt6 DLL folder
-qt_bin = os.path.join(os.path.dirname(PyQt6.__file__), "Qt6", "bin")
+base = None
+if sys.platform == "win32":
+    base = "Win32GUI"  # hides the console window
+
+# include your assets and Qt plugins
+venv_root = os.path.dirname(os.path.dirname(sys.executable))  # goes up from Scripts -> .venv
+
+includefiles = [
+    ("../assets", "assets"),  # copy assets folder to build folder
+    (os.path.join(venv_root, "Lib\\site-packages\\PyQt6\\Qt6\\bin"), "Qt6/bin"),
+    (os.path.join(venv_root, "Lib\\site-packages\\PyQt6\\Qt6\\plugins"), "Qt6/plugins")
+]
+
 
 setup(
-    name="DesktopPet",
+    name="Desktop_lulumumu",
     version="1.0",
-    description="Desktop Pet",
-    options={
-        "build_exe": {
-            "packages": ["PyQt6"],
-            "include_files": [
-                "assets/",           # your GIFs
-                (qt_bin, ".")        # copy all DLLs directly into build folder
-            ],
-        }
-    },
-    executables=[Executable("main.py", base="Win32GUI")]
+    description="Desktop pet for lulumumu",
+    options={"build_exe": {"include_files": includefiles}},
+    executables=[Executable("main.py", base=base)]
 )
