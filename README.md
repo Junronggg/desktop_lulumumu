@@ -134,7 +134,8 @@ https://www.python.org/downloads/
 安装完成后，打开终端 / PowerShell，输入：
 
 ```bash
-```python --version
+python --version
+```
 若能看到版本号（如 Python 3.11.x），说明安装成功
 
 
@@ -143,8 +144,10 @@ https://www.python.org/downloads/
 可以使用 Git 克隆 或 直接下载 ZIP
 
 方法一：使用 Git
-```git clone https://github.com/Junronggg/desktop_lulumumu.git
-```cd desktop_lulumumu
+```bash
+git clone https://github.com/Junronggg/desktop_lulumumu.git
+cd desktop_lulumumu
+```
 
 方法二：下载 ZIP
 
@@ -155,25 +158,34 @@ https://www.python.org/downloads/
 为了避免依赖冲突，建议为项目创建虚拟环境。
 
 - Windows:
-```python -m venv venv
-```venv\Scripts\activate
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
 - macOS / Linux:
-```python3 -m venv venv
-```source venv/bin/activate
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
 激活成功后，终端前会显示：
 
 ```bash
-```(venv)
+(venv)
+```
 
 ### 4️⃣ 安装项目依赖
 
-确保你已经激活虚拟环境，然后运行：
-```pip install -r requirements.txt
+确保已经激活虚拟环境，然后运行：
+```bash
+pip install -r requirements.txt
+```
+下载python库
 
 ### 5️⃣ 项目结构说明
 桌面豚馒的项目结构如下：
+```bash
 desktop-pet/
 ├── assets/              # GIF / PNG / UI 资源
 │   ├── hedwig_emocat.gif
@@ -186,9 +198,12 @@ desktop-pet/
     ├── main.py              # 程序入口
 ├── requirements.txt     # 依赖列表
 └── README.md
+```
 
 ### 6️⃣ 运行桌面豚馒
-```python main.py
+```bash
+python main.py
+```
 
 ### 7️⃣ 开发环境推荐
 - IDE：PyCharm / VS Code
